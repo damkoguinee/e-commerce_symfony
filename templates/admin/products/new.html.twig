@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajout produit{% endblock %}
+{% block header %}{% endblock %}
+
+{% block body %}
+    <h3 class="text-center">Ajouter un nouveau produit</h3>
+    {{form_errors(productsForm)}}
+    {{form_start(productsForm)}}
+        <div class="row">
+            <div class="col-sm-12 col-md-4">
+                <label for="">Categorie <sup>*</sup></label>
+                {{form_widget(productsForm.categorie)}}
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <label for="">Dimensions</label>
+                {{form_widget(productsForm.dimension)}}
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <label for="">Epaisseur</label>
+                {{form_widget(productsForm.epaisseur)}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+                <label for="">Référence<sup>*</sup></label>
+                {{form_widget(productsForm.reference)}}
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <label for="">Désignation<sup>*</sup></label>
+                {{form_widget(productsForm.designation)}}
+            </div>
+        </div>
+
+        {{form_row(productsForm.quantite)}}
+        <button type="submit" class="btn btn-success my-2">Ajouter</button>
+    {{form_end(productsForm)}}
+
+    {# {{ include('admin/products/_form.html.twig') }} #}
+
+    <a class="btn btn-secondary" href="{{ path('app_admin_products_index') }}">Retour</a>
+{% endblock %}
+
+{% block footer %}{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}epaisseurs{% endblock %}
+{% block header %}{% endblock %}
+
+{% block body %}
+    <h3 class="text-center">Liste des épaisseurs</h3>
+
+    <table class="table table-bordered table-striped table-hover align-middle text-center w-50 m-auto">
+        <thead class="sticky-top bg-light text-center">
+            <tr>
+                <th>N°</th>
+                <th>Epaisseurs</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for epaisseur in epaisseurs %}
+            <tr>
+                <td>{{ epaisseur.id }}</td>
+                <td>{{ epaisseur.valeurEpaisseur }}</td>
+                <td>
+                    <a class="btn btn-success" href="{{ path('app_admin_epaisseurs_show', {'id': epaisseur.id}) }}"><i class="fa fa-eye"></i></a>
+                    <a class="btn btn-warning" href="{{ path('app_admin_epaisseurs_edit', {'id': epaisseur.id}) }}"><i class="fa fa-edit"></i></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">Aucun épaisseur trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="{{ path('app_admin_epaisseurs_new') }}">Ajouter un épaisseur</a>
+{% endblock %}

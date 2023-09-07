@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}produits{% endblock %}
+{% block header %}{% endblock %}
+
+{% block body %}
+    <h3 class="text-center">Liste des Produits</h3>
+
+
+    <table class="table table-bordered table-striped table-hover align-middle">
+        <thead class="sticky-top bg-light text-center">
+            <tr>
+                <th>N°</th>
+                <th>Référence</th>
+                <th>Désignation</th>
+                <th>Quantite</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+                <td class="text-center">
+                    {{ product.id }}
+                    {% if product.categorie.couverture %}            
+                        {{product.categorie.couverture|img("miniature", "couverture manquante")|raw}}
+                    {% else %}
+                        <img alt="couverture manquante" class="miniature">
+                    {% endif %}
+                </td>
+                <td>{{ product.reference }}</td>
+                <td>{{ product.designation }}</td>
+                <td class="text-center">{{ product.quantite }}</td>
+                <td class="text-center">
+                    <a class="btn btn-success" href="{{ path('app_admin_products_show', {'id': product.id}) }}"><i class="fa fa-eye"></i></a>
+                    <a class="btn btn-warning" href="{{ path('app_admin_products_edit', {'id': product.id}) }}"><i class="fa fa-edit"></i></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucun produit trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="{{ path('app_admin_products_new') }}">Ajouter un produit</a>
+{% endblock %}
+{% block footer %}{% endblock %}

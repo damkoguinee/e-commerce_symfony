@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Categorie{% endblock %}
+{% block header %}{% endblock %}
+
+{% block body %}
+    <h3 class="text-center">Catégorie {{categorie.nameCategorie}}</h3>
+
+    <table class="table table-bordered table-striped table-hover align-middle">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ categorie.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom de la catégorie</th>
+                <td>{{ categorie.nameCategorie }}</td>
+            </tr>
+            <tr>
+                <th>Couverture</th>
+                <td class="text-start">
+                    {% if categorie.couverture %}                   
+                        {# <img src="{{chemin_images ~ categorie.couverture}}" alt="couverture manquante" class="miniature"> #}
+
+                        {{categorie.couverture|img("miniature", "couverture manquante")|raw}}
+                    {% else %}
+                        <img alt="couverture manquante" class="miniature">
+                    {% endif %} 
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+    <div class="pb-4 d-flex justify-content-between">
+        <a class="btn btn-secondary" href="{{ path('app_admin_categorie_index') }}">Retour</a>
+
+        <a class="btn btn-info" href="{{ path('app_admin_categorie_edit', {'id': categorie.id}) }}"><i class="fa fa-edit"></i></a>
+
+        {{ include('_common/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

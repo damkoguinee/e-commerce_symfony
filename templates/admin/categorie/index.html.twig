@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}categorie{% endblock %}
+{% block header %}{% endblock %}
+
+{% block body %}
+    <h3 class="text-center">Liste des Catégories</h3>
+    <table class="table table-bordered table-striped table-hover align-middle">
+        <thead class="sticky-top bg-light text-center">
+            <tr>
+                <th>N°</th>
+                <th>Nom de la catégorie</th>
+                <th>Images</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for key, categorie in categories %}
+            <tr>
+                <td class="text-center">{{key+1}}</td>
+
+                <td>{{ categorie.nameCategorie }}</td>
+
+                <td class="text-center">
+                    {% if categorie.couverture %}                   
+                        {# <img src="{{chemin_images ~ categorie.couverture}}" alt="couverture manquante" class="miniature"> #}
+
+                        {{categorie.couverture|img("miniature", "couverture manquante")|raw}}
+                    {% else %}
+                        <img alt="couverture manquante" class="miniature">
+                    {% endif %} 
+                </td>
+                    
+                <td class="text-center">
+                    <a class="btn btn-success" href="{{ path('app_admin_categorie_show', {'id': categorie.id}) }}"><i class="fa fa-eye"></i></a>
+                    <a class="btn btn-warning" href="{{ path('app_admin_categorie_edit', {'id': categorie.id}) }}"><i class="fa fa-edit"></i></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Aucune Catégorie trouvée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a class="btn btn-primary" href="{{ path('app_admin_categorie_new') }}">Ajouter une catégorie</a>
+{% endblock %}

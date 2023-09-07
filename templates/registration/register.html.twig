@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+{% block header %}{% endblock %}
+
+{% block body %}
+    <h3 class="text-center">Completez ce formulaire pour vous inscrire</h3>
+
+    {{ form_errors(registrationForm) }}
+
+    {{ form_start(registrationForm) }}
+        <div class="row mb-1">
+            <div class="col-sm-12 col-md-6">
+                <label for="">Pseudo<sup>*</sup></label>
+                {{ form_widget(registrationForm.username, {
+                    attr: {label: 'Pseudo*', placeholder: "votre pseudo"}
+                }) }}
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <label for="">Mot de Passe<sup>*</sup></label>
+                {{ form_widget(registrationForm.plainPassword, {
+                    attr: {label: 'Mot de Passe*', placeholder: "votre mot de passe"}
+                }) }}
+            </div>
+        </div>
+
+        <div class="row mb-1">
+            <div class="col-sm-12 col-md-6">
+                <label for="">Prénom<sup>*</sup></label>
+                {{ form_widget(registrationForm.prenom,{
+                    attr:{placeholder: "votre prénom"}
+                }) }}
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <label for="">Nom<sup>*</sup></label>
+                {{ form_widget(registrationForm.nom,{
+                    attr:{placeholder: "votre nom"}
+                }) }}
+            </div>
+        </div>
+        <div class="d-flex">
+            {{ form_errors(registrationForm.prenom) }}
+            {{ form_errors(registrationForm.nom,{
+                attr:{placeholder: "Nom", class:"bg-warning"}
+            }) }}
+        </div>
+
+        <div class="row mb-1">
+            <div class="col-sm-12 col-md-4">
+                <label for="">Téléphone<sup>*</sup></label>
+                {{ form_widget(registrationForm.telephone,{
+                    attr:{placeholder: "votre téléphone", label: 'Téléphone*'}
+                }) }}
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <label for="">Email</label>
+                {{ form_widget(registrationForm.email,{
+                    attr:{placeholder: "votre émail", label: 'Email'}
+                }) }}
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <label for="">date de Naissance</label>
+                {{ form_widget(registrationForm.naissance) }}
+            </div>
+        </div>
+        <div class="d-flex">
+            {{ form_errors(registrationForm.telephone,{
+                attr:{placeholder: "Nom", class:"bg-warning"}
+            }) }}
+        </div>
+
+        {{ form_row(registrationForm.agreeTerms) }}
+
+        <button type="submit" class="btn btn-success">S'inscrire</button>
+    {{ form_end(registrationForm) }}
+{% endblock %}
+{% block footer %}{% endblock %}

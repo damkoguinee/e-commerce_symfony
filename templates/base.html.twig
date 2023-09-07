@@ -1,16 +1,244 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}
+				Welcome!
+			{% endblock %}
+		</title>
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
 
-        {% block javascripts %}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+		{% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+		{% endblock %}
+
+		{% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+		{% endblock %}
+	</head>
+	<body>
+		<style>
+			.body {
+				min-height: 100vh;
+			}
+		</style>
+		{% block header %}
+			{{ include("_common/_header.html.twig") }}
+		{% endblock %}
+
+		{{ include("_common/_nav.html.twig") }}
+		<div class="container-fluid">
+			{% block top %}
+			<div style="margin-top:200px;"></div>
+			{% endblock %}
+			{% block body %}
+
+				{% block sectionExpo %}
+					<section class="expo">
+						<div class="blocimage">
+							<a href="categorieProduit.php"><img src="images/img_products/rectangulaire.jpg" alt="rectangulaire">
+							<div class="desc">nos tubes rectangulaires</div></a>
+							<!-- <span class="trait"></span>
+							<span class="desc">15,00 €</span> -->
+						</div>
+
+						<div class="blocimage">
+							<a href="categorieProduit.php"><img src="images/img_products/rond.jpg" alt="rond">
+							<div class="desc">nos tubes rondes</div></a>
+							<!-- <span class="trait"></span>
+							<span class="desc">15,00 €</span> -->
+						</div>
+
+						<div class="blocimage">
+							<a href="categorieProduit.php"><img src="images/img_products/baguettes.jpg" alt="baguettes">
+							<div class="desc">nos baguettes</div></a>
+							<!-- <span class="trait"></span>
+							<span class="desc">15,00 €</span> -->
+						</div>
+
+						<div class="blocimage">
+							<a href="categorieProduit.php"><img src="images/img_products/corniere.jpg" alt="corniere">
+							<div class="desc">nos cornières</div></a>
+							<!-- <span class="trait"></span>
+							<span class="desc">15,00 €</span> -->
+						</div>
+
+						<div class="blocimage">
+							<a href="categorieProduit.php"><img src="images/img_products/ferplat.jpg" alt="ferplat">
+							<div class="desc">nos fers plats</div></a>
+							<!-- <span class="trait"></span>
+							<span class="desc">15,00 €</span> -->
+						</div>
+
+						<div class="blocimage">
+							<a href="categorieProduit.php"><img src="images/img_products/ferh.jpg" alt="ferh">
+							<div class="desc">nos fers h</div></a>
+							<!-- <span class="trait"></span>
+							<span class="desc">15,00 €</span> -->
+						</div>
+
+						<div class="blocimage">
+							<a href="categorieProduit.php"><img src="images/img_products/feru.jpg" alt="feru">
+							<div class="desc">nos fers u</div></a>
+							<!-- <span class="trait"></span>
+							<span class="desc">15,00 €</span> -->
+						</div>
+
+						<div class="blocimage">
+							<a href="categorieProduit.php"><img src="images/img_products/gouttiere.jpg" alt="gouttiere">
+							<div class="desc">nos gouttières</div></a>
+							<!-- <span class="trait"></span>
+							<span class="desc">15,00 €</span> -->
+						</div>
+
+						<div class="blocimage">
+							<a href="categorieProduit.php"><img src="images/img_products/disque.jpg" alt="disque">
+							<div class="desc">nos disques</div></a>
+							<!-- <span class="trait"></span>
+							<span class="desc">15,00 €</span> -->
+						</div>
+
+						<div class="blocimage">
+							<a href="categorieProduit.php"><img src="images/img_products/lamecirculaire.jpg" alt="lamecirculaire">
+							<div class="desc">nos lames circulaires</div></a>
+							<!-- <span class="trait"></span>
+							<span class="desc">15,00 €</span> -->
+						</div>
+
+						<div class="blocimage">
+							<a href="categorieProduit.php"><img src="images/img_products/lame.jpg" alt="lame">
+							<div class="desc">nos lames de scie</div></a>
+							<!-- <span class="trait"></span>
+							<span class="desc">15,00 €</span> -->
+						</div>
+
+						<div class="blocimage">
+							<a href="categorieProduit.php"><img src="images/img_products/metal deploye.jpg" alt="metal deploye">
+							<div class="desc">nos métaux deployés</div></a>
+							<!-- <span class="trait"></span>
+							<span class="desc">15,00 €</span> -->
+						</div>
+
+						<div class="blocimage">
+							<a href="categorieProduit.php"><img src="images/img_products/pinceau.jpg" alt="pinceau">
+							<div class="desc">nos pinceaux</div></a>
+							<!-- <span class="trait"></span>
+							<span class="desc">15,00 €</span> -->
+						</div>
+
+						<div class="blocimage">
+							<a href="categorieProduit.php"><img src="images/img_products/gants.jpg" alt="gants">
+							<div class="desc">nos gants</div></a>
+							<!-- <span class="trait"></span>
+							<span class="desc">15,00 €</span> -->
+						</div>
+
+						<div class="blocimage">
+							<a href="categorieProduit.php"><img src="images/img_products/paumelle.jpg" alt="paumelle">
+							<div class="desc">nos paumelles</div></a>
+							<!-- <span class="trait"></span>
+							<span class="desc">15,00 €</span> -->
+						</div>
+
+						<div class="blocimage">
+							<a href="categorieProduit.php"><img src="images/img_products/serrure.jpg" alt="serrure">
+							<div class="desc">nos serrures</div></a>
+							<!-- <span class="trait"></span>
+							<span class="desc">15,00 €</span> -->
+						</div>
+
+						<div class="blocimage">
+							<a href="categorieProduit.php"><img src="images/img_products/toles bac.jpg" alt="toles bac">
+							<div class="desc">nos tôles bacs</div></a>
+							<!-- <span class="trait"></span>
+							<span class="desc">15,00 €</span> -->
+						</div>
+
+						<div class="blocimage">
+							<a href="categorieProduit.php"><img src="images/img_products/toles tuiles.jpg" alt="toles tuiles">
+							<div class="desc">nos tôles tuiles</div></a>
+							<!-- <span class="trait"></span>
+							<span class="desc">15,00 €</span> -->
+						</div>
+
+						<div class="blocimage">
+							<a href="categorieProduit.php"><img src="images/img_products/toles ondulees.jpg" alt="toles ondulees">
+							<div class="desc">nos tôles ondulées</div></a>
+							<!-- <span class="trait"></span>
+							<span class="desc">15,00 €</span> -->
+						</div>
+
+					</section>
+				{% endblock %}
+
+				{% block sectionApropos %}
+					<section id="apropos">
+						<h1 class="py-4">A Propos</h1>
+						<div class="container-fluid">
+							<div class="row justify-content-center">
+								<div class="col-sm-12 col-md-4 my-4"><img class="produitMagasin" src="images/produitMagasin.jpg" alt="produit du magsin"></div>
+								
+								<div class="col-sm-12 col-md-7 propos">
+									<p><strong>DAMKOMAT</strong> est une entreprise spécialisée dans la vente des matériaux de construction. Il propose de vente en gros ou au détail de fer ou d’acier à destination des particuliers comme des professionnels. Depuis plus de 10 ans, nous vous faisons bénéficier de notre expertise. Nous accompagnons et conseillons nos clients avec l’aide d’une solide équipe de commerciaux entièrement à votre disposition. Contactez-nous par email ou par téléphone aux horaires d’ouverture du standard (8h-18h) afin de bénéficier des connaissances de nos professionnels sur nos produits et de nos conseils sur votre projet de construction ou de rénovation.</p>
+									<p><strong>DAMKOMAT</strong>, c’est un catalogue complet avec un large choix de produits en fer et acier, fer forgé ou encore tôles destinées à vos réalisations sur mesure. Vous pourrez ainsi réaliser des produits métallurgiques solides et qualitatifs pour l’intérieur ou l’extérieur de votre logement telles que : une porte, un antivol, une pergola, un garde-corps, une rampe, un escalier en métal ou encore des objets décoratifs métalliques...</p>
+									
+									<p><strong>DAMKOMAT</strong> propose différents services comme :</p>
+
+									<ul>
+										<li>La vente de matériaux bruts (tubes carrés, tubes rectangulaires, ronds, cornières, tôles, etc…)</li>
+										<li>Service de taille et découpe sur mesure de vos barres et tôles.</li>
+										<li>Une livraison rapide dans toute la Guinée</li>
+									</ul>
+									
+									<p>Ferronniers, professionnels du bâtiment, particuliers bricoleurs, retrouvez toute notre gamme de produits en fer et ses dérivés sur notre site et bénéficiez d’un excellent rapport qualité prix pour toute vos réalisations.</p>
+								</div>
+							</div>
+						</div>
+					</section>
+				{% endblock %}
+
+				{{include("_common/_contact.html.twig")}}
+				<section class="">
+					<h1 class="titreContact" id="contact">Ils nous ont fait confiance</h1>
+					<div class="container-fluid py-4">
+						<div class="row justify-content-between">
+							<div class="col py-2"><img class="imgCollaborateurs" src="images/img_logos/logo.jpg" alt=""></div>
+							<div class="col py-2"><img class="imgCollaborateurs" src="images/img_logos/logoafbico.jpg" alt=""></div>
+							<div class="col py-2"><img class="imgCollaborateurs" src="images/img_logos/logodamko.jpg" alt=""></div>
+							<div class="col py-2"><img class="imgCollaborateurs" src="images/img_logos/logoets.jpg" alt=""></div>
+							<div class="col py-2"><img class="imgCollaborateurs" src="images/img_logos/logom.jpg" alt=""></div>
+							<div class="col py-2"><img class="imgCollaborateurs" src="images/img_logos/logomodc.jpg" alt=""></div>
+							<div class="col py-2"><img class="imgCollaborateurs" src="images/img_logos/logoosam.jpg" alt=""></div>
+						</div>
+					</div>
+				</section>
+				<button class="scroll" id="myBtnScroll" title="Go-to-top"><i class="fa-solid fa-backward-step fa-rotate-90"></i></button>
+			{% endblock %}
+		</div>
+
+		{% block footer %}
+		
+			<footer class="py-5 mt-5">
+				<div class="row">
+					<p class="text-center">Nous acceptons les moyens de paiement suivants</p>
+
+				
+					<div class="" style="display: flex; flex-wrap: wrap; justify-content: center;">
+						<div class=""><img src="{{chemin_img_paie}}modep.jpg" width="100" height="50" alt="mode paiement"></div>
+						<div class=""><img src="{{chemin_img_paie}}omoney.jpg" width="100" height="50" alt="orange money"></div>
+					</div>
+				</div>
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-sm-12 col-md-3 py-4"><a href="#">Politiques de cookies</a></div>
+						<div class="col-sm-12 col-md-3 py-4"><a href="#">Mentions légales</a></div>
+						<div class="col-sm-12 col-md-3 py-4"><a href="#">Politique de confidentialités</a></div>
+						<div class="col-sm-12 col-md-3 py-4">&copy Copyright koulamatco.com – Tous droits réservés. Par DAMKO</div>
+					</div>
+				</div>
+			</footer>
+		{% endblock %}
+	</body>
 </html>
+

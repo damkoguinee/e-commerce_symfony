@@ -1,0 +1,34 @@
+{{ form_start(form) }}
+{{form_errors(productsForm)}}
+    {{form_start(productsForm)}}
+        <div class="row">
+            <div class="col-sm-12 col-md-4">
+                <label for="">Categorie <sup>*</sup></label>
+                {{form_widget(productsForm.categorie)}}
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <label for="">Dimensions</label>
+                {{form_widget(productsForm.dimension)}}
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <label for="">Epaisseur</label>
+                {{form_widget(productsForm.epaisseur)}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+                <label for="">Référence<sup>*</sup></label>
+                {{form_widget(productsForm.reference)}}
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <label for="">Désignation<sup>*</sup></label>
+                {{form_widget(productsForm.designation)}}
+            </div>
+        </div>
+
+        {{form_row(productsForm.quantite)}}
+        <button type="submit" class="btn btn-success my-2">Modifier</button>
+    {{form_end(productsForm)}}
+
+    {{include("_common/_buttons_form.html.twig")}}
+{{ form_end(form) }}

@@ -1,0 +1,13 @@
+/* on peut reddefinir les variables de Bootstrap en les plaçant avant l'importation */
+$primary:   #183772;
+$danger:    #6b2f2f;
+$warning:   #a06e04;
+$success:   #527e52;
+$gris:      #8c8c8c;
+
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+@import "~bootstrap/scss/bootstrap";
+
+img.miniature { height: 50px; width: 50px;}
+
+
